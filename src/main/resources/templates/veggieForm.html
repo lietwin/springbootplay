@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta hhttp-equiv="content-type" content="text/html; charset= UTF-8" />
+    <title>Veggie Form</title>
+</head>
+<body>
+<!--/*@thymesVar id="vegetable" type="io.ar.metechium.domain.Vegetable"*/-->
+    <form action ="#" th:action="@{/veggie}" method="post" th:object="${vegetable}">
+        <div>
+            <label>Name:</label>
+            <input type="text" th:field="*{name}" th:value="#{vegetable.name}"/>
+        </div>
+        <div>
+            <label>Color:</label>
+            <input type="text" th:field="*{color}" th:value="#{vegetable.color}"/>
+        </div>
+        <div>
+            <label>Price</label>
+            <input type="number" th:field="*{price}" th:value="#{vegetable.price}" />
+        </div>
+
+        <div>
+            <button type = "submit">Save</button>
+            <button type="reset">Cancel</button>
+        </div>
+
+    </form>
+</body>
+</html>

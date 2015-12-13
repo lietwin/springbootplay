@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Veggie Hello!</title>
+</head>
+<body>
+<!--/*@thymesVar id="sound" type="String"*/-->
+<h1 th:text = "'Welcome to Veggie ' + ${sound} + ' ' + ${sound} +'!'"/>
+<h2>Available Vegetables</h2>
+<table>
+    <tr>
+        <thead>Name</thead>
+        <thead>Color</thead>
+        <thead>Price</thead>
+    </tr>
+    <tr th:each="vegetable : ${vegetables}">
+        <td th:text = " ${vegetable.name}"/>
+        <td th:text = "${vegetable.color}"/>
+        <td th:text = "${vegetable.price}"/>
+    </tr>
+</table>
+    <p> Wanna add some veggies? <a th:href="@{/veggie}">Click Here!</a></p>
+</body>
+</html>
