@@ -10,14 +10,13 @@ public class Vegetable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String name;
-
     private String color;
-
     private Integer price;
 
-    public Vegetable(){};
+    public Vegetable() {
+    }
+
     public Vegetable(String name, String color, Integer price) {
         this.name = name;
         this.color = color;

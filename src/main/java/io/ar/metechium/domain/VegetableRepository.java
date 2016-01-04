@@ -1,6 +1,5 @@
-package io.ar.metechium.service;
+package io.ar.metechium.domain;
 
-import io.ar.metechium.domain.Vegetable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

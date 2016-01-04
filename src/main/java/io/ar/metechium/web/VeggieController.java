@@ -1,7 +1,7 @@
 package io.ar.metechium.web;
 
 import io.ar.metechium.domain.Vegetable;
-import io.ar.metechium.service.VegetableRepository;
+import io.ar.metechium.domain.VegetableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
