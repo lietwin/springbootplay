@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <!--@thymesVar id="sound" type="String"-->
+    <title th:text="'Veggies' + ${sound}"/>
+
+</head>
+<body>
+
+<!--@thymesVar id="sound" type="String"-->
+<h1 th:text="'Welcome to veggies ' + ${sound} + ' ' + ${sound} +'!'"/>
+
+<div th:include="menu :: #top-menu"></div>
+
+
+</body>
+</html>

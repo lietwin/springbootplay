@@ -1,8 +1,9 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Veggie Hello!</title>
+    <!--@thymesVar id="sound" type="String"-->
+    <title>Veggies!!!</title>
     <style>
         table {
             border-collapse: collapse;
@@ -16,11 +17,8 @@
     </style>
 </head>
 <body>
-
-<!--@thymesVar id="sound" type="String"-->
-<h1 th:text="'Welcome to Veggies ' + ${sound} + ' ' + ${sound} +'!'"/>
-
-<h2>Available Vegetables</h2>
+<div th:include="menu::#top-menu"></div>
+<h2>Vegetables in stock!</h2>
 <table>
     <tr>
         <th>Name</th>
@@ -34,7 +32,7 @@
         <td th:text="${vegetable.price}"/>
     </tr>
 </table>
-<p> Wanna add some veggies? <a th:href="@{/veggie}">Click Here!</a></p>
 
+<p> Wanna add some veggies? <a th:href="@{/veggie/add}">Click Here!</a></p>
 </body>
 </html>

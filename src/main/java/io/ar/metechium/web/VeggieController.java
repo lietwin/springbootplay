@@ -23,10 +23,17 @@ public class VeggieController {
     public String index(@RequestParam(value= "sound", required = false, defaultValue= "Bam") String sound, Model model){
         List<Vegetable> vegs = (List<Vegetable>) veggieRepository.findAll();
         model.addAttribute("sound", sound);
+        return "index";
+    }
+
+    @RequestMapping("/veggie")
+    public String listAll(Model model) {
+        List<Vegetable> vegs = (List<Vegetable>) veggieRepository.findAll();
         model.addAttribute("vegetables", vegs);
         return "veggieHello";
     }
-    @RequestMapping(value="/veggie", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/veggie/add", method = RequestMethod.GET)
     public String createOrUpdate(@RequestParam(value = "id", required = false) Long id, Model model){
         if(id != null){
          Vegetable veg  = veggieRepository.findOne(id);
@@ -37,10 +44,10 @@ public class VeggieController {
         return "veggieForm";
     }
 
-    @RequestMapping(value="/veggie", method = RequestMethod.POST)
+    @RequestMapping(value = "/veggie/add", method = RequestMethod.POST)
     public String createOrUpdateSave(@ModelAttribute Vegetable vegetable, Model model){
         veggieRepository.save(vegetable);
-        return "redirect:/";
+        return "redirect:/veggie";
     }
 
 }
