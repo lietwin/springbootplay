@@ -1,0 +1,45 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/layout :: headFragment"/>
+<body>
+<div id="body-wrapper">
+    <div class="header-wrapper">
+        <nav th:replace="fragments/layout :: navbarFragment"/>
+    </div>
+
+    <div id="content-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Veggies in stock!</h1>
+                    <table class="table">
+                        <tr>
+                            <th>Name</th>
+                            <th>Color</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th></th>
+                        </tr>
+                        <!--@thymesVar id="vegetables" type="io.ar.metechium.domain.Vegetable"-->
+                        <tr th:each="vegetable : ${vegetables}">
+                            <td th:text=" ${vegetable.name}"/>
+                            <td th:text="${vegetable.color}"/>
+                            <td th:text="${vegetable.quantity}"/>
+                            <td th:text="${vegetable.price}"/>
+                            <td>
+                                <a th:href="@{/veggie/create(id=${vegetable.id})}"><span
+                                        class="glyphicon glyphicon-pencil"/></a>
+                                <a th:href="@{/veggie/delete(id=${vegetable.id})}"><span
+                                        class="glyphicon glyphicon-remove"/></a>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <p> Wanna add some veggies? <a th:href="@{/veggie/create}">Click Here!</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
