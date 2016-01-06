@@ -12,7 +12,16 @@ public class Vegetable {
     private Long id;
     private String name;
     private String color;
+    private Integer quantity;
     private Integer price;
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 
     public Vegetable() {
     }
@@ -20,6 +29,14 @@ public class Vegetable {
     public Vegetable(String name, String color, Integer price) {
         this.name = name;
         this.color = color;
+        this.price = price;
+        this.quantity = 0;
+    }
+
+    public Vegetable(String name, String color, Integer quantity, Integer price) {
+        this.name = name;
+        this.color = color;
+        this.quantity = quantity;
         this.price = price;
     }
 
@@ -53,5 +70,17 @@ public class Vegetable {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Vegetable{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", color='" + color + '\'' +
+                ", quantity=" + quantity +
+                ", price=" + price +
+                '}';
     }
 }

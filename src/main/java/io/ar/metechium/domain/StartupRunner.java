@@ -19,10 +19,10 @@ public class StartupRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         logger.info("DB initialization");
         // save couple of vegetables;
-        vegetableRepository.save(new Vegetable("onions", "red", 2));
-        vegetableRepository.save(new Vegetable("avocado", "green", 4));
-        vegetableRepository.save(new Vegetable("lettuce", "green", 1));
-        vegetableRepository.save(new Vegetable("carrot", "orange", 3));
+        vegetableRepository.save(new Vegetable("onions", "red", 50, 5));
+        vegetableRepository.save(new Vegetable("avocado", "green", 15, 8));
+        vegetableRepository.save(new Vegetable("lettuce", "green", 5, 1));
+        vegetableRepository.save(new Vegetable("carrot", "orange", 20, 3));
 
         // fetch all vegetables
         logger.info("Vegetables using CrudRepository findAll()");
