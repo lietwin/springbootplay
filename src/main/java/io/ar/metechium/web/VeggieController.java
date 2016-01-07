@@ -37,7 +37,7 @@ public class VeggieController {
         return "veggieList";
     }
 
-    @RequestMapping(value = "/veggie/create", method = RequestMethod.GET)
+    @RequestMapping(value = "/veggie/edit", method = RequestMethod.GET)
     public String createOrUpdate(@RequestParam(value = "id", required = false) Long id, Model model){
         if(id != null){
          Vegetable veg  = veggieRepository.findOne(id);
@@ -50,18 +50,13 @@ public class VeggieController {
         return "veggieUpdateForm";
     }
 
-    //TODO update not working
-    @RequestMapping(value = "/veggie/create")
-    public String createOrUpdateSave(@RequestParam(value = "id", required = false) Long id, @ModelAttribute Vegetable vegetable, Model model) {
+    @RequestMapping(value = "/veggie/edit")
+    public String createOrUpdateSave(@RequestParam(value = "id", required = true) Long id, @ModelAttribute Vegetable vegetable, Model model) {
+        veggieRepository.save(vegetable);
         if (null != id) {
-            veggieRepository.findOne(id).setName(vegetable.getName());
-            veggieRepository.findOne(id).setPrice(vegetable.getPrice());
-            veggieRepository.findOne(id).setColor(vegetable.getColor());
-            veggieRepository.findOne(id).setQuantity(vegetable.getQuantity());
             logger.info("Veggie update");
         } else {
             logger.info("Veggie Creation");
-            veggieRepository.save(vegetable);
         }
         return "redirect:/veggie";
     }
