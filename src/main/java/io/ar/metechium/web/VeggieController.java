@@ -67,4 +67,10 @@ public class VeggieController {
         return "redirect:/veggie";
     }
 
+    //TODO default implementation. Do proper implementation
+    @RequestMapping(value = "/account", method = RequestMethod.GET)
+    public String user(){
+        return "redirect:/";
+    }
+
 }
